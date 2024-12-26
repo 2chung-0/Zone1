@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        @font-face {
+            font-family: 'MaruBuri-SemiBold';
+            src: url('글꼴/MaruBuri-SemiBold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'YUniverse';
+            src: url('글꼴/YUniverse-B.otf') format('opentype');
+        }
+        
+        @font-face {
+            font-family: 'Freesentation-5Medium';
+            src: url('글꼴/Freesentation-5Medium');
+        }
+
+        @font-face {
+            font-family: 'Freesentation-4Regular';
+            src: url('글꼴/Freesentation-4Regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'Kopub-Batang-L';
+            src: url('글꼴/KoPubWorld_Batang_Pro_Light.otf') format('opentype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Transition only for background color */
+        body {
+            transition: background-color 0.8s ease;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 50px 0px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .title {
+            font-family: var(--title-font);
+            font-size: 220px;
+            margin-bottom: 13px;
+        }
+
+        .jeon {
+            padding-left: 13px;
+        }
+
+        .subtitle {
+            font-family: 'Freesentation-4Regular', sans-serif;
+            font-size: 50px;
+            margin-bottom: 55px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 1100px;
+            padding: 0px 60px;
+            margin: 0 0 30px 0;
+        }
+
+        .date {
+            font-family: var(--date-font);
+            font-size: 130px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .location {
+            font-family: 'Freesentation-4Regular', sans-serif;
+            font-size: 45px;
+            letter-spacing: 0.3px;
+        }
+
+        .theme-4 {
+            --title-font: 'MaruBuri-SemiBold', serif;
+            --date-font: 'MaruBuri-SemiBold', serif;
+            background-color: rgb(247, 247, 247);
+            color: rgb(55, 55, 55);
+        }
+
+        .theme-1 .jeon, .theme-3 .jeon, .theme-4 .jeon {
+            font-family: 'Kopub-Batang-L', sans-serif;
+        }
+
+        .theme-2 .jeon {
+            font-family: 'Freesentation-4Regular', sans-serif;
+        }
+
+        /* Version specific styles */
+        .theme-1 {
+            --title-font: 'YUniverse', sans-serif;
+            --date-font: 'YUniverse', sans-serif;
+            background-color: #93ACD4;
+            color: white;
+        }
+
+        .theme-2 {
+            --title-font: 'Freesentation-4Regular', sans-serif;
+            --date-font: 'Freesentation-4Regular', sans-serif;
+            background-color: rgb(247, 247, 247);
+            color: rgb(55, 55, 55);
+        }
+
+        .theme-3 {
+            --title-font: 'YUniverse', sans-serif;
+            --date-font: 'YUniverse', sans-serif;
+            background-color: #373737;
+            color: white;
+        }
+
+        .theme-3 .profile-image {
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+<body class="theme-1">
+    <div class="container">
+        <div class="title"><span class="name">우은빈</span><span class="jeon">展</span></div>
+        <p class="subtitle">우자까(사람을 사람으로, 사랑으로)</p>
+        <img src="우은빈/zone0_customization_0.jpg" alt="프로필 이미지" class="profile-image">
+        <p class="date">1987.11.27-</p>
+        <p class="location">서울특별시 출생</p>
+    </div>
+
+    <script>
+        function updatePage(version) {
+            const currentVersion = parseInt(document.body.className.replace('theme-', ''));
+            if (currentVersion === version) return;
+
+            const body = document.body;
+            const nameElement = document.querySelector('.name');
+            const subtitleElement = document.querySelector('.subtitle');
+            const imageElement = document.querySelector('.profile-image');
+            const dateElement = document.querySelector('.date');
+            const locationElement = document.querySelector('.location');
+
+            // 기존 버전별 업데이트 로직 유지
+            if (version === 1) {
+                body.className = 'theme-1';
+                nameElement.textContent = '우은빈';
+                subtitleElement.textContent = '우자까(사람을 사람으로, 사랑으로)';
+                imageElement.src = '우은빈/zone0_customization_0.jpg';
+                imageElement.alt = '우은빈';
+                dateElement.textContent = '1987.11.27-';
+                locationElement.textContent = '서울특별시 출생';
+            } else if (version === 4) {
+                body.className = 'theme-4';
+                nameElement.textContent = '정임숙';
+                subtitleElement.textContent = '평범한 일상';
+                imageElement.src = '정임숙/zone0_customization_0.jpg';
+                imageElement.alt = '정임숙';
+                dateElement.textContent = '1973.12.26-';
+                locationElement.textContent = '서울특별시 출생';
+            } else if (version === 2) {
+                body.className = 'theme-2';
+                nameElement.textContent = '이애자';
+                subtitleElement.textContent = '노래는 즐거워';
+                imageElement.src = '이애자/zone0_customization_0.jpg';
+                imageElement.alt = '이애자';
+                dateElement.textContent = '1942.11.27-';
+                locationElement.textContent = '서울특별시 출생';
+            } else if (version === 3) {
+                body.className = 'theme-3';
+                nameElement.textContent = '임유빈';
+                subtitleElement.textContent = '내 전시에 온 걸 환영해...ㅎ';
+                imageElement.src = '임유빈/zone0_customization_0.jpg';
+                imageElement.alt = '임유빈';
+                dateElement.textContent = '2002.01.13-';
+                locationElement.textContent = '성남시 출생';
+            }
+        }
+
+        function getCurrentScheduledVersion() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const time = hours * 100 + minutes;
+
+            const schedule = [
+                { start: 1200, end: 1230, version: 1 },
+                { start: 1230, end: 1300, version: 2 },
+                { start: 1300, end: 1330, version: 3 },
+                { start: 1330, end: 1400, version: 4 },
+                { start: 1400, end: 1430, version: 1 },
+                { start: 1430, end: 1500, version: 2 },
+                { start: 1500, end: 1530, version: 3 },
+                { start: 1530, end: 1600, version: 4 },
+                { start: 1600, end: 1630, version: 1 },
+                { start: 1630, end: 1700, version: 2 },
+                { start: 1700, end: 1730, version: 3 },
+                { start: 1730, end: 1800, version: 4 },
+                { start: 1800, end: 1830, version: 1 },
+                { start: 1830, end: 1900, version: 2 }
+            ];
+
+            const currentSlot = schedule.find(slot => time >= slot.start && time < slot.end);
+            return currentSlot ? currentSlot.version : 1;
+        }
+
+
+        // WebSocket 연결 설정
+        const ws = new WebSocket("wss://ws.thelifegalleryvideo.com");
+        
+        // 클라이언트 ID와 사용자 매핑
+        const clientMapping = {
+            'c6b8': 4, // 정임숙
+            '4de9': 1, // 우은빈
+            '7e0e': 3, // 임유빈
+            '3af9': 2  // 이애자
+        };
+
+        ws.onopen = () => {
+            console.log("WebSocket 연결됨");
+            // 현재 클라이언트의 ID를 확인하고 해당하는 버전으로 업데이트
+            const currentClientId = window.location.hash.substring(1) || 'default';
+            const version = clientMapping[currentClientId] || 1;
+            
+            ws.send(JSON.stringify({
+                action: "setId",
+                clientId: currentClientId
+            }));
+            
+            updatePage(version);
+        };
+
+        ws.onclose = () => {
+            console.log("WebSocket 연결이 종료되었습니다");
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            //console.log("서버로부터 수신:", data);
+
+            if (data.action === "sync" && data.currentSelection.clientId) {
+                const version = clientMapping[data.currentSelection.clientId];
+                if (version) {
+                    updatePage(version);
+                }
+            }
+        };
+
+        ws.onerror = (error) => {
+            console.error("WebSocket 에러:", error);
+        };
+        // 시간 기반 업데이트 설정 (매 30분/정각마다)
+        function scheduleNextUpdate() {
+            const now = new Date();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            // 다음 업데이트까지 남은 시간 계산 (다음 30분 또는 정각까지)
+            const nextMinutes = minutes >= 30 ? 60 : 30;
+            const msUntilNext = ((nextMinutes - minutes) * 60 - seconds) * 1000;
+            
+            setTimeout(() => {
+                updatePage(getCurrentScheduledVersion());
+                scheduleNextUpdate(); // 다음 업데이트 예약
+            }, msUntilNext);
+        }
+
+        // 초기 페이지 설정 및 업데이트 스케줄링
+        updatePage(getCurrentScheduledVersion());
+        scheduleNextUpdate();
+    </script>
+</body>
+</html>
