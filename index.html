@@ -56,12 +56,22 @@
             padding: 50px 0px;
             width: 100%;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .title {
             font-family: var(--title-font);
             font-size: 220px;
             margin-bottom: 13px;
+        }
+        .left{
+            width: 50vw;
+        }
+
+        .right{
+            width: 50vw;
         }
 
         .jeon {
@@ -70,7 +80,7 @@
 
         .subtitle {
             font-family: 'Freesentation-4Regular', sans-serif;
-            font-size: 50px;
+            font-size: 60px;
             margin-bottom: 55px;
             letter-spacing: 0.5px;
         }
@@ -86,14 +96,14 @@
 
         .date {
             font-family: var(--date-font);
-            font-size: 130px;
+            font-size: 140px;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
         .location {
             font-family: 'Freesentation-4Regular', sans-serif;
-            font-size: 45px;
+            font-size: 60px;
             letter-spacing: 0.3px;
         }
 
@@ -141,11 +151,13 @@
 </head>
 <body class="theme-1">
     <div class="container">
-        <div class="title"><span class="name">우은빈</span><span class="jeon">展</span></div>
-        <p class="subtitle">우자까(사람을 사람으로, 사랑으로)</p>
+        <div class="left" >        <div class="title"><span class="name">우은빈</span><span class="jeon">展</span></div>
+        <p class="subtitle">우자까(사람을 사람으로, 사랑으로)</p></div>
+        <div class="right">
         <img src="우은빈/zone0_customization_0.jpg" alt="프로필 이미지" class="profile-image">
         <p class="date">1987.11.27-</p>
         <p class="location">서울특별시 출생</p>
+    </div>
     </div>
 
     <script>
